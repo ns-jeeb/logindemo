@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/smartPhoneFragmentList">
+
+    <fragment
+        android:id="@+id/smartPhoneFragmentList"
+        android:name="com.example.techmahindrademoapp.SmartPhoneFragmentList"
+        android:label="SmartPhoneFragmentList" >
+
+        <action
+            android:id="@+id/action_smartPhoneFragmentList_to_detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@+id/title_destination"
+            app:destination="@id/detailFragment" />
+        <argument
+            android:name="update_details"
+            android:defaultValue="null"
+            app:argType="string"/>
+        <argument
+            android:name="update_position"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.techmahindrademoapp.ui.main.DetailFragment"
+        android:label="DetailFragm.ent" >
+        <action
+            android:id="@+id/action_detailFragment_to_smartPhoneFragmentList"
+            app:destination="@id/smartPhoneFragmentList" />
+        <argument
+            android:name="details"
+            android:defaultValue="null"
+            app:argType="string"/>
+        <argument
+            android:name="details_position"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+
+</navigation>
